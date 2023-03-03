@@ -10,10 +10,15 @@ import PostDetail from "../../components/PostDetail";
 
 const Home = () => {
     const [query, setQuery] = useState("");
-    const {documents:posts, loading, error} = useFetchDocuments("posts");
+    const { documents: posts, loading, error } = useFetchDocuments("posts");
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        if (query) {
+            return navigate(`/search?q=${query}`);
+        }
     }
 
     return (
@@ -27,6 +32,7 @@ const Home = () => {
                 />
                 <button className="btn btn-dark">Pesquisar</button>
             </form>
+            {loading && <p>Carregando Posts...</p>}
             <div>
                 {posts && posts.map((post) => (
                     <PostDetail key={post.id} post={post}></PostDetail>
@@ -40,6 +46,7 @@ const Home = () => {
                     </div>
                 )}
             </div>
+            {error && <p className='error'>O correu algum erro, tente mais tarde</p>}
         </div>
     )
 }

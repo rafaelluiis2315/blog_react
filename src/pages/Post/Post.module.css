@@ -1,0 +1,35 @@
+.postContainer{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.postContainer h3{
+    margin-bottom: 0.3em;
+}
+
+.createdBy span{
+    font-style: italic;
+    font-weight: 700;
+}
+
+.body{
+    max-width: 60em;
+    text-align: none;
+    margin-bottom: 1em;
+}
+
+.tags{
+    display: flex;
+    justify-content: center;
+}
+
+.tags p{
+    margin-right: 1em;
+}
+
+.tags span{
+    font-weight: bold;
+}
